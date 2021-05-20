@@ -41,33 +41,27 @@ export default class FormPage extends Component {
   }
   handleSubmit = () => {
     const value = this._form.getValue();
-    // console.log("value: ", value);
-    // alert(value.email);
-    const creds = [];
-    fetch("https://jsonplaceholder.typicode.com/posts", {
-      method: "POST",
-      body: JSON.stringify({
-        email: value.email,
-        username: value.username,
-        password: value.password,
-        terms: value.terms,
-      }),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
-    })
-      .then((response) => response.json())
-      .then((json) => {
-        this.setState({
-          creds: json,
+    if (value !== null) {
+      fetch("https://jsonplaceholder.typicode.com/posts", {
+        method: "POST",
+        body: JSON.stringify({
+          email: value.email,
+          username: value.username,
+          password: value.password,
+          terms: value.terms,
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      })
+        .then((response) => response.json())
+        .then((json) => {
+          this.setState({
+            creds: json,
+          });
         });
-      });
+    }
   };
-
-  //   showCred = () => {
-  //     return <Text>{this.state.creds}</Text>;
-  //     alert(this.state.creds);
-  //   };
 
   render() {
     return (
