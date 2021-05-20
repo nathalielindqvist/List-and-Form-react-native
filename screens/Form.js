@@ -15,7 +15,6 @@ const User = t.struct({
   email: t.String,
   username: t.maybe(t.String),
   password: t.String,
-  terms: t.Boolean,
 });
 
 const options = {
@@ -27,9 +26,6 @@ const options = {
       password: true,
       secureTextEntry: true,
       error: "Please enter a password",
-    },
-    terms: {
-      label: "Agree to Terms",
     },
   },
 };
@@ -50,7 +46,6 @@ export default class FormPage extends Component {
           email: value.email,
           username: value.username,
           password: value.password,
-          terms: value.terms,
         }),
         headers: {
           "Content-type": "application/json; charset=UTF-8",
@@ -71,7 +66,7 @@ export default class FormPage extends Component {
         <Form ref={(c) => (this._form = c)} type={User} options={options} />
         <Button title="Submit" onPress={this.handleSubmit} />
         <Text style={styles.credsText}>
-          When you click "Submit" you will see you credentials here:
+          When you click "Submit" you will see the credentials you entered here:
         </Text>
         <Text style={styles.credsText}>
           Email: {this.state.creds.email} {"\n"}
