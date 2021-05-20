@@ -24,6 +24,8 @@ const options = {
       error: "Please enter a valid email adress",
     },
     password: {
+      password: true,
+      secureTextEntry: true,
       error: "Please enter a password",
     },
     terms: {
