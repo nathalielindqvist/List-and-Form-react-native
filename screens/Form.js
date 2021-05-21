@@ -1,11 +1,5 @@
 import React, { Component } from "react";
-import {
-  View,
-  StyleSheet,
-  Button,
-  TouchableHighlight,
-  Text,
-} from "react-native";
+import { View, StyleSheet, Button, Text } from "react-native";
 
 import t from "tcomb-form-native";
 

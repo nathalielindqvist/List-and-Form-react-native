@@ -28,11 +28,7 @@ const App = () => {
   }, []);
 
   const searchFilterFunction = (text) => {
-    // Check if searched text is not blank
     if (text) {
-      // If inserted text is not blank =>
-      // Filter the masterDataSource
-      // Update FilteredDataSource
       const newData = masterDataSource.filter(function (item) {
         const itemData = item.name ? item.name.toUpperCase() : "".toUpperCase();
         const textData = text.toUpperCase();
@@ -41,8 +37,6 @@ const App = () => {
       setFilteredDataSource(newData);
       setSearch(text);
     } else {
-      // If inserted text is blank =>
-      // Update FilteredDataSource with masterDataSource
       setFilteredDataSource(masterDataSource);
       setSearch(text);
     }
